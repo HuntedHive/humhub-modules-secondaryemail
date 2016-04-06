@@ -20,6 +20,6 @@ class EmailEvents
             return;
         }
 
-        $event->sender->addWidget('application.modules.seconderyemail.widgets.EmailNotificationWidget', array(), array('sortOrder' => 90));
+        $event->sender->addWidget('application.modules.secondaryemail.widgets.EmailNotificationWidget', array(), array('sortOrder' => 90));
     }
 }

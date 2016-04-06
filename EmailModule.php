@@ -9,8 +9,8 @@ class EmailModule extends HWebModule
     {
        
         $this->setImport(array(
-            'seconderyemail.models.*',
-            'seconderyemail.forms.*',
+            'secondaryemail.models.*',
+            'secondaryemail.forms.*',
         ));
     }
 }

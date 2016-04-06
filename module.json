@@ -1,7 +1,7 @@
 {
-    "id": "seconderyemail",
-    "name": "Secondery Email",
-    "description": "Add secondery email to user",
+    "id": "secondaryemail",
+    "name": "Secondary Email",
+    "description": "Add secondary email to user",
     "keywords": [
         "user"
     ],

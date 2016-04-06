@@ -1,10 +1,10 @@
 <?php
 Yii::app()->moduleManager->register(array(
-    'id' => 'seconderyemail',
-    'class' => 'application.modules.seconderyemail.EmailModule',
+    'id' => 'secondaryemail',
+    'class' => 'application.modules.secondaryemail.EmailModule',
     'import' => array(
-        'application.modules.seconderyemail.*',
-        'application.modules.seconderyemail.forms.*',
+        'application.modules.secondaryemail.*',
+        'application.modules.secondaryemail.forms.*',
     ),
     'events' => array(
         array('class' => 'AdminMenuWidget', 'event' => 'onInit', 'callback' => array('EmailEvents', 'onAdminMenuInit')),
