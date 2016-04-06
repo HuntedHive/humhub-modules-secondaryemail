@@ -21,7 +21,7 @@ Add code to config/local/_settings.php in `Components` array
         '<controller:\w+>/<id:\d+>' => '<controller>/view',
         '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
         '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-        'user/account/changeEmail' => 'seconderyemail/customs/changeEmail',
+        'user/account/changeEmail' => 'secondaryemail/customs/changeEmail',
     ),
 ),
 
@@ -34,8 +34,8 @@ If `urlManager` already exists then add code below to only to `Rules`.
 '<controller:\w+>/<id:\d+>' => '<controller>/view',
 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-'user/account/changeEmail' => 'seconderyemail/customs/changeEmail',
+'user/account/changeEmail' => 'secondaryemail/customs/changeEmail',
 
 If you disable module  you need to delete the line below:
 
-'user/account/changeEmail' => 'seconderyemail/customs/changeEmail',
+'user/account/changeEmail' => 'secondaryemail/customs/changeEmail',
