@@ -1,5 +1,8 @@
 # humhub-modules-secondary email
 
+This module creates adds functionality and has basic design for secondary email http://i.imgur.com/oVxwHfk.png. Before activating/deactivating module, please follow the instructions in  README
+
+
 Add code to config/local/_settings.php in `Components` array 
 
 'urlManager' => array(
