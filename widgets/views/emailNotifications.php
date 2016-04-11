@@ -1,13 +1,6 @@
 <?php 
     if(isset(Yii::app()->user->getModel()->secondery_email) && empty(CHtml::encode(Yii::app()->user->getModel()->secondery_email)) && !isset($_COOKIE['secondery_email'])) {
 ?>
-<div class="alert alert-info alert-message text-center">
-    <center>Hi <?=  Yii::app()->user->getModel()->username; ?>, don't forget to <a style="color:#fff;text-decoration:underline;" href="<?= Yii::app()->createUrl('user/account/changeEmail') ?>">add a secondery email address</a> to your account to retain access to TeachConnect When your institutial email address expires</center>
-    <div class="close">X</div>    
-</div>
-
-
-
 
 <style>
     .alert-message {
@@ -18,15 +11,39 @@
         background: #3d427f;
         z-index: 99999;
         color: #fff;
+		border: none;
+		border-radius: 0px;
     }
+	
+	.alert-message a{
+		color:#fff;
+		text-decoration:underline;
+		opacity:0.6
+	}
+	
+	.alert-message a:hover{
+		color:#fff;
+		text-decoration:underline;
+		opacity:0.8;
+	}
     
     .alert-message .close {
         position: relative;
         float:right;
         margin-top:-20px;
-        color:#fff !important;
+		opacity:0.5;
+		font-size: 21px;
+		font-weight: bold;
+		line-height: 1;
+		color: #fff;
+		text-shadow: 0 1px 0 #000;
     }
 </style>
+
+<div class="alert alert-info alert-message text-center">
+    <center>Hi <?=  Yii::app()->user->getModel()->username; ?>, don't forget to <a href="<?= Yii::app()->createUrl('user/account/changeEmail') ?>">add a secondery email address</a> to your account to retain access to TeachConnect when your institutial email address expires</center>
+    <button type="button" class="close"><i class="fa fa-close"></i></button>    
+</div>
 
 <script>
     $(document).ready(function(){
