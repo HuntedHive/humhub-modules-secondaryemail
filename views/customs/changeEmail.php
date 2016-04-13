@@ -30,7 +30,7 @@
     <?php echo CHtml::submitButton(Yii::t('UserModule.views_account_changeEmail', 'Save'), array('class' => 'btn btn-primary')); ?>
 
     <?php $this->endWidget(); ?>
-    
+    <br /><br />
     <?php
     $form = $this->beginWidget('CActiveForm', array(
         'id' => 'user-form2',

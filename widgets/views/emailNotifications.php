@@ -38,6 +38,14 @@
 		color: #fff;
 		text-shadow: 0 1px 0 #000;
     }
+
+    .topbar {
+        margin-top: 51px;
+    }
+
+    body > .container {
+        margin-top:51px;
+    }
 </style>
 
 <div class="alert alert-info alert-message text-center">
@@ -54,6 +62,8 @@
         
         $(".alert-message .close").on("click", function(){
             $(".alert-message").fadeOut(1000);
+            $(".topbar").animate({"marginTop" : 0}, 1000);
+            $("body > .container").animate({"marginTop" : 0}, 1000);
             setCookie("secondery_email", 1);
         });
         
