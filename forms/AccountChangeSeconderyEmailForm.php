@@ -14,6 +14,7 @@ class AccountChangeSeconderyEmailForm extends CFormModel {
            array('seconderyPassword, newSeconderyEmail', 'required'),
 //            array('seconderyPassword', 'CheckPasswordValidator'),
             array('newSeconderyEmail', 'email'),
+            array('newSeconderyEmail', 'unique', 'attributeName' => 'email', 'caseSensitive' => false, 'className' => 'User', 'message' => '{attribute} "{value}" is already in use!'),
             array('newSeconderyEmail', 'unique', 'attributeName' => 'secondery_email', 'caseSensitive' => false, 'className' => 'User', 'message' => '{attribute} "{value}" is already in use!'),
         );
     }
