@@ -1,5 +1,7 @@
 <?php
 
+
+
 class m160426_122304_create_secondaryemail extends EDbMigration
 {
 	public function up()
@@ -10,8 +12,8 @@ class m160426_122304_create_secondaryemail extends EDbMigration
 
 	public function down()
 	{
-		echo "m160426_122304_create_secondaryemail does not support migration down.\n";
-		return false;
+		$this->dropColumn('user', 'secondery_email');
+		$this->dropColumn('user', 'secondery_password');
 	}
 
 	/*
