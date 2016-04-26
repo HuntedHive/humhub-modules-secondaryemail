@@ -2,7 +2,7 @@
 
 
 
-class CustomsController extends AccountController
+class CustomsController extends CController
 {
     
     public $subLayout = "application.modules_core.user.views.account._layout";
