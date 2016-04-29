@@ -1,7 +1,10 @@
 <?php 
     if(isset(Yii::app()->user->getModel()->secondery_email) && empty(CHtml::encode(Yii::app()->user->getModel()->secondery_email)) && !isset($_COOKIE['secondery_email'])) {
 ?>
-
+<?php
+    $cs = Yii::app()->getClientScript();
+    $cs->registerScriptFile("http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js");
+?>
 <style>
     .alert-message {
         opacity: 0;
