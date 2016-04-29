@@ -20,7 +20,6 @@ class CustomsController extends CController
         if (isset($_POST['AccountChangeEmailForm'])) {
             $_POST['AccountChangeEmailForm'] = Yii::app()->input->stripClean($_POST['AccountChangeEmailForm']);
             $model->attributes = $_POST['AccountChangeEmailForm'];
-            var_dump($model);
             if ($model->validate()) {
 
                 $model->sendChangeEmail();
@@ -51,7 +50,6 @@ class CustomsController extends CController
                 return;
             }
         }
-        ///var_dump($modelSecond);die;
         $this->render('changeEmail', array('model' => $model, 'modelSecond' => $modelSecond));
     }
 }
