@@ -72,7 +72,7 @@ body > .container {
 </style>
 
 <div class="alert alert-info alert-message text-center">
-    <center>Hi <?=  Yii::app()->user->getModel()->username; ?>, don't forget to <a href="<?= Yii::app()->createUrl('user/account/changeEmail') ?>">add a secondery email address</a> to your account to retain access to TeachConnect when your institutional email address expires.</center>
+    <center>Hi <?=  Yii::app()->user->getModel()->username; ?>, don't forget to <a href="<?= Yii::app()->createUrl('user/account/changeEmail') ?>">add a secondary email address</a> to your account to retain access to TeachConnect when your institutional email address expires.</center>
     <button type="button" class="close"><i class="fa fa-close"></i></button>    
 </div>
 

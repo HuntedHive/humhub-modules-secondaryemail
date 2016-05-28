@@ -55,19 +55,19 @@
 
 	<div class="secondary-email">
         <div class="form-group">
-            <?php echo Yii::t('UserModule.views_account_changeEmail', '<strong>Secondery E-mail address</strong>'); ?>
+            <?php echo Yii::t('UserModule.views_account_changeEmail', '<strong>Secondary E-mail address</strong>'); ?>
             <br /><?php echo CHtml::encode(Yii::app()->user->getModel()->secondery_email) ?>
             <?php 
             if(isset(Yii::app()->user->getModel()->secondery_email) && empty(CHtml::encode(Yii::app()->user->getModel()->secondery_email))) {
-                echo "<p class='update-email-alert'>Add a secondery e-mail address to your account in order to retain access the system when your institutional e-mail address expires.</p>";
+                echo "<p class='update-email-alert'>Add a secondary e-mail address to your account in order to retain access the system when your institutional e-mail address expires.</p>";
             }
             
             ?>
         </div>
         
         <div class="form-group">
-             <label class="required">Update Secondery E-Mail address *</label>
-            <?php echo $form->textField($modelSecond, 'newSeconderyEmail', array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Enter new secondery e-mail address')); ?>
+             <label class="required">Update Secondary E-Mail address *</label>
+            <?php echo $form->textField($modelSecond, 'newSeconderyEmail', array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Enter new secondary e-mail address')); ?>
             <?php echo $form->error($modelSecond, 'newSeconderyEmail'); ?>
         </div>
         
@@ -77,7 +77,7 @@
             <?php echo $form->error($modelSecond, 'seconderyPassword'); ?>
         </div>
     
-		<?php echo CHtml::submitButton(Yii::t('UserModule.views_account_changeEmail', 'Update Secondery E-mail'), array('class' => 'btn btn-primary pull-right')); ?>
+		<?php echo CHtml::submitButton(Yii::t('UserModule.views_account_changeEmail', 'Update Secondary E-mail'), array('class' => 'btn btn-primary pull-right')); ?>
     
         <?php $this->endWidget(); ?>
     </div>
