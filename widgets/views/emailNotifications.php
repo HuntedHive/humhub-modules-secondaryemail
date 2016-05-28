@@ -1,54 +1,74 @@
-<?php 
+<?php
     if(isset(Yii::app()->user->getModel()->secondery_email) && empty(CHtml::encode(Yii::app()->user->getModel()->secondery_email)) && !isset($_COOKIE['secondery_email'])) {
 ?>
 <?php
     $cs = Yii::app()->getClientScript();
     $cs->registerScriptFile("http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js");
 ?>
+
 <style>
-    .alert-message {
-        opacity: 0;
-        position: fixed;
-        top: 0px;
-        width:100%;
-        background: #3d427f;
-        z-index: 99999;
-        color: #fff;
-		border: none;
-		border-radius: 0px;
-    }
-	
-	.alert-message a{
-		color:#fff;
-		text-decoration:underline;
-		opacity:0.6
-	}
-	
-	.alert-message a:hover{
-		color:#fff;
-		text-decoration:underline;
-		opacity:0.8;
-	}
-    
-    .alert-message .close {
-        position: relative;
-        float:right;
-        margin-top:-20px;
-		opacity:0.5;
-		font-size: 21px;
-		font-weight: bold;
-		line-height: 1;
-		color: #fff;
-		text-shadow: 0 1px 0 #000;
-    }
+.alert-message {
+    opacity: 0;
+    position: fixed;
+    top: 0px;
+    width:100%;
+    background: #3d427f;
+    z-index: 99999;
+    color: #fff;
+    border: none;
+    border-radius: 0px;
+    min-width:320px;
+}
 
-    .topbar {
-        margin-top: 51px;
-    }
+.alert-message a{
+    color:#fff;
+    text-decoration:underline;
+    opacity:0.6
+}
 
-    body > .container {
-        margin-top:51px;
+.alert-message a:hover{
+    color:#fff;
+    text-decoration:underline;
+    opacity:0.8;
+}
+
+.alert-message .close {
+    position: relative;
+    float:right;
+    margin-top:-20px;
+    opacity:0.5;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 1px 0 #000;
+}
+
+.topbar {
+    margin-top: 51px;
+}
+
+body > .container {
+    margin-top:51px;
+}
+
+@media(max-width: 936px) {
+	.topbar, body > .container {
+        margin-top: 71px;
     }
+}
+
+@media(max-width: 495px) {
+	.topbar, body > .container {
+        margin-top: 91px;
+    }
+}
+
+@media(max-width: 354px) {
+	.topbar, body > .container {
+        margin-top: 111px;
+    }
+}
 </style>
 
 <div class="alert alert-info alert-message text-center">
