@@ -51,14 +51,8 @@ class AccountChangeSeconderyEmailForm extends CFormModel {
     public function attributeLabels()
     {
         return array(
-//            'seconderyPassword' => Yii::t('UserModule.forms_AccountChangeEmailForm', 'Current password'),
-//            'newSeconderyEmail' => 'New S address',
+            'seconderyPassword' => Yii::t('UserModule.forms_AccountChangeEmailForm', 'Secondary Password'),
+            'newSeconderyEmail' => 'New Secondary Email',
         );
-    }
-
-    
-    public function saveSeconderyEmail()
-    {
-        //
     }
 }
