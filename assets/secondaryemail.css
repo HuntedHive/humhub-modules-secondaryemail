@@ -11,10 +11,11 @@ HumHub Secondary Email Module Style CSS
     background: #3d427f !important;
     z-index: 99999;
     color: #fff !important;
-    border: none;
+    border: none !important;
     border-radius: 0px;
     min-width:320px;
     border-color: inherit !important;
+    border-radius: 0px !important;
 }
 
 .alert-message a{
@@ -41,24 +42,32 @@ HumHub Secondary Email Module Style CSS
     text-shadow: 0 1px 0 #000;
 }
 
-body > .container {
-    margin-top:51px;
-}
-
 @media(max-width: 936px) {
-    .topbar, body > .container {
-        margin-top: 71px;
+    .topbar-alert-margin {
+        margin-top: 71px !important;
+    }
+
+    .topbar-alert-body{
+        padding-top: 140px;
     }
 }
 
 @media(max-width: 495px) {
-    .topbar, body > .container {
-        margin-top: 91px;
+    .topbar-alert-margin {
+        margin-top: 91px !important;
+    }
+
+    .topbar-alert-body{
+        padding-top: 160px;
     }
 }
 
 @media(max-width: 354px) {
-    .topbar, body > .container {
-        margin-top: 111px;
+    .topbar-alert-margin {
+        margin-top: 111px !important;
+    }
+
+    .topbar-alert-body{
+        padding-top: 180px;
     }
 }
