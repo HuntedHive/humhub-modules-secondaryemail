@@ -1,25 +1,30 @@
 <?php
 
+namespace humhub\modules\secondaryemail\controllers;
 
+use yii\web\Controller;
+use humhub\modules\user\models\User;
+use Yii;
+use humhub\modules\secondaryemail\forms\AccountChangeSeconderyEmailForm;
+use humhub\modules\user\models\forms\AccountChangeEmail;
 
-class CustomsController extends CController
+class CustomsController extends Controller
 {
     
-    public $subLayout = "application.modules_core.user.views.account._layout";
+    public $subLayout = "@humhub/modules/user/views/account/_layout";
     
     
     public function actionChangeEmail()
     {
-        $user = User::model()->findByPk(Yii::app()->user->id);
+        $user = User::findOne(Yii::$app->user->id);
         if ($user->auth_mode != User::AUTH_MODE_LOCAL) {
             throw new CHttpException(500, Yii::t('UserModule.controllers_AccountController', 'You cannot change your e-mail address here.'));
         }
         
-        $model = new AccountChangeEmailForm;
+        $model = new AccountChangeEmail;
         
-        if (isset($_POST['AccountChangeEmailForm'])) {
-            $_POST['AccountChangeEmailForm'] = Yii::app()->input->stripClean($_POST['AccountChangeEmailForm']);
-            $model->attributes = $_POST['AccountChangeEmailForm'];
+        if (isset($_POST['AccountChangeEmail'])) {
+            $model->attributes = $_POST['AccountChangeEmail'];
             if ($model->validate()) {
 
                 $model->sendChangeEmail();
@@ -34,22 +39,20 @@ class CustomsController extends CController
         $modelSecond = new AccountChangeSeconderyEmailForm;
         if (isset($_POST['AccountChangeSeconderyEmailForm'])) {
           
-            $_POST['AccountChangeSeconderyEmailForm'] = Yii::app()->input->stripClean($_POST['AccountChangeSeconderyEmailForm']);
             $modelSecond->seconderyPassword = $_POST['AccountChangeSeconderyEmailForm']['seconderyPassword'];
             $modelSecond->newSeconderyEmail = $_POST['AccountChangeSeconderyEmailForm']['newSeconderyEmail'];
-            
             if ($modelSecond->validate()) {
                 
-                $user->secondery_email = $modelSecond->newSeconderyEmail;
-                $user->secondery_password = $modelSecond->generatePassword($modelSecond->seconderyPassword);
+                $user->secondary_email = $modelSecond->newSeconderyEmail;
+                $user->secondary_password = $modelSecond->generatePassword($modelSecond->seconderyPassword);
                 $user->save();
                 
                 $this->render('changeSeconderyEmail_success', array('model' => $modelSecond));
 
                 // form inputs are valid, do something here
-                return;
+                return $this->redirect(Yii::$app->req);
             }
         }
-        $this->render('changeEmail', array('model' => $model, 'modelSecond' => $modelSecond));
+        return $this->render('changeEmail', array('model' => $model, 'modelSecond' => $modelSecond));
     }
 }

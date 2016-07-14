@@ -1,13 +1,18 @@
 <?php
-    if(isset(Yii::app()->user->getModel()->secondery_email) && empty(CHtml::encode(Yii::app()->user->getModel()->secondery_email)) && !isset($_COOKIE['secondery_email'])) {
+
+use yii\helpers\Html;
+use humhub\modules\secondaryemail\Assets;
+
 ?>
+
+
 <?php
-    //$cs = Yii::app()->getClientScript(); //disable write post
-    //$cs->registerScriptFile("http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js");
+    if(isset(Yii::$app->user->identity->secondary_email) && empty(Html::encode(Yii::$app->user->identity->secondary_email)) && !isset($_COOKIE['secondery_email'])) {
+        Assets::register($this);
 ?>
 
 <div class="alert alert-info alert-message text-center" id="secondaryemail-alert">
-    <center>Hi <?=  Yii::app()->user->getModel()->username; ?>, don't forget to <a href="<?= Yii::app()->createUrl('user/account/changeEmail') ?>">add a secondary email address</a> to your account to retain access to TeachConnect when your institutional email address expires.</center>
+    <center>Hi <?=  Yii::$app->user->identity->username; ?>, don't forget to <a href="<?= Yii::$app->urlManager->createUrl('user/account/changeEmail') ?>">add a secondary email address</a> to your account to retain access to TeachConnect when your institutional email address expires.</center>
     <button type="button" class="close"><i class="fa fa-close"></i></button>
 </div>
 

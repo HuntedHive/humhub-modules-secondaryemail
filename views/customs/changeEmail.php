@@ -1,3 +1,10 @@
+<?php
+
+use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
+
+?>
+
 <style type="text/css">
 	.update-email-alert{
 		color:rgb(61, 66, 127) !important;
@@ -10,7 +17,7 @@
 </div>
 <div class="panel-body">
     <?php
-    $form = $this->beginWidget('CActiveForm', array(
+    $form = ActiveForm::begin(array(
         'id' => 'user-form',
         'enableAjaxValidation' => false,
     ));
@@ -19,26 +26,22 @@
     <div id="primary-email">
         <div class="form-group">
             <?php echo Yii::t('UserModule.views_account_changeEmail', '<strong>Primary E-mail address</strong>'); ?>
-            <br /><?php echo CHtml::encode(Yii::app()->user->getModel()->email) ?>
+            <br /><?php echo Html::encode(\Yii::$app->user->identity->email) ?>
         </div>
     
         <div class="form-group">
-            <!--<?php echo $form->labelEx($model, 'newEmail'); ?> // denv i wasn't sure how to change the label text within the module-->
             <label for="AccountChangeEmailForm_newEmail" class="required">Update Primary E-Mail address <span class="required">*</span></label>
-            <?php echo $form->textField($model, 'newEmail', array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Enter new primary e-mail address')); ?>
-            <?php echo $form->error($model, 'newEmail'); ?>
+            <?php echo $form->field($model, 'newEmail')->textInput(array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Enter new primary e-mail address')); ?>
         </div>
         
         <div class="form-group">
-            <!--<?php echo $form->labelEx($model, 'currentPassword'); ?> // denv i wasn't sure how to change the label text within the module-->
             <label for="AccountChangeEmailForm_currentPassword" class="required">Confirm password <span class="required">*</span></label>
-            <?php echo $form->passwordField($model, 'currentPassword', array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Confirm your password')); ?>
-            <?php echo $form->error($model, 'currentPassword'); ?>
+            <?php echo $form->field($model, 'currentPassword')->passwordInput(array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Confirm your password')); ?>
         </div>
     
-        <?php echo CHtml::submitButton(Yii::t('UserModule.views_account_changeEmail', 'Update Primary E-mail'), array('class' => 'btn btn-primary pull-right')); ?>
+        <?php echo Html::submitButton(Yii::t('UserModule.views_account_changeEmail', 'Update Primary E-mail'), array('class' => 'btn btn-primary pull-right')); ?>
     
-        <?php $this->endWidget(); ?>
+        <?php ActiveForm::end(); ?>
     
     </div>
     
@@ -47,18 +50,17 @@
     <br /><br />
 
     <?php
-    $form = $this->beginWidget('CActiveForm', array(
-        'id' => 'user-form2',
-        'enableAjaxValidation' => false,
-    ));
+        $form = ActiveForm::begin(array(
+            'id' => 'user-form2',
+        ));
     ?>
 
 	<div class="secondary-email">
         <div class="form-group">
             <?php echo Yii::t('UserModule.views_account_changeEmail', '<strong>Secondary E-mail address</strong>'); ?>
-            <br /><?php echo CHtml::encode(Yii::app()->user->getModel()->secondery_email) ?>
+            <br /><?php echo Html::encode(Yii::$app->user->identity->secondary_email) ?>
             <?php 
-            if(isset(Yii::app()->user->getModel()->secondery_email) && empty(CHtml::encode(Yii::app()->user->getModel()->secondery_email))) {
+            if(isset(Yii::$app->user->identity->secondary_email) && empty(Html::encode(Yii::$app->user->identity->secondary_email))) {
                 echo "<p class='update-email-alert'>Add a secondary e-mail address to your account in order to retain access the system when your institutional e-mail address expires.</p>";
             }
             
@@ -67,19 +69,17 @@
         
         <div class="form-group">
              <label class="required">Update Secondary E-Mail address *</label>
-            <?php echo $form->textField($modelSecond, 'newSeconderyEmail', array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Enter new secondary e-mail address')); ?>
-            <?php echo $form->error($modelSecond, 'newSeconderyEmail'); ?>
+            <?php echo $form->field($modelSecond, 'newSeconderyEmail')->textInput(array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Enter new secondary e-mail address')); ?>
         </div>
         
         <div class="form-group">
             <label class="required">Confirm password *</label>
-            <?php echo $form->passwordField($modelSecond, 'seconderyPassword', array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Confirm your password')); ?>
-            <?php echo $form->error($modelSecond, 'seconderyPassword'); ?>
+            <?php echo $form->field($modelSecond, 'seconderyPassword')->textInput(array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Confirm your password')); ?>
         </div>
     
-		<?php echo CHtml::submitButton(Yii::t('UserModule.views_account_changeEmail', 'Update Secondary E-mail'), array('class' => 'btn btn-primary pull-right')); ?>
-    
-        <?php $this->endWidget(); ?>
+		<?php echo Html::submitButton(Yii::t('UserModule.views_account_changeEmail', 'Update Secondary E-mail'), array('class' => 'btn btn-primary pull-right')); ?>
+
+        <?php ActiveForm::end(); ?>
     </div>
 </div>
 

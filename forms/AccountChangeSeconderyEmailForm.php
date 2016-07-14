@@ -1,6 +1,12 @@
 <?php
 
-class AccountChangeSeconderyEmailForm extends CFormModel {
+namespace humhub\modules\secondaryemail\forms;
+
+use Yii;
+use yii\base\Model;
+use humhub\modules\user\models\User;
+
+class AccountChangeSeconderyEmailForm extends Model {
 
     public $seconderyPassword;
     public $newSeconderyEmail;
@@ -11,11 +17,10 @@ class AccountChangeSeconderyEmailForm extends CFormModel {
     public function rules()
     {
         return array(
-           array('seconderyPassword, newSeconderyEmail', 'required'),
-//            array('seconderyPassword', 'CheckPasswordValidator'),
+           array(['seconderyPassword', 'newSeconderyEmail'], 'required'),
             array('newSeconderyEmail', 'email'),
-            array('newSeconderyEmail', 'unique', 'attributeName' => 'email', 'caseSensitive' => false, 'className' => 'User', 'message' => '{attribute} "{value}" is already in use!'),
-            array('newSeconderyEmail', 'unique', 'attributeName' => 'secondery_email', 'caseSensitive' => false, 'className' => 'User', 'message' => '{attribute} "{value}" is already in use!'),
+            array('newSeconderyEmail', 'unique', 'targetAttribute' => 'email', 'targetClass' => User::className(), 'message' => '{attribute} "{value}" is already in use!'),
+            array('newSeconderyEmail', 'unique', 'targetAttribute' => 'secondary_email', 'targetClass' => User::className(), 'message' => '{attribute} "{value}" is already in use!'),
         );
     }
     
