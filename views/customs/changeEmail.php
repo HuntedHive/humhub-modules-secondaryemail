@@ -31,12 +31,12 @@ use yii\helpers\Html;
     
         <div class="form-group">
             <label for="AccountChangeEmailForm_newEmail" class="required">Update Primary E-Mail address <span class="required">*</span></label>
-            <?php echo $form->field($model, 'newEmail')->textInput(array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Enter new primary e-mail address')); ?>
+            <?php echo $form->field($model, 'newEmail')->textInput(array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Enter new primary e-mail address'))->label(false); ?>
         </div>
         
         <div class="form-group">
             <label for="AccountChangeEmailForm_currentPassword" class="required">Confirm password <span class="required">*</span></label>
-            <?php echo $form->field($model, 'currentPassword')->passwordInput(array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Confirm your password')); ?>
+            <?php echo $form->field($model, 'currentPassword')->passwordInput(array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Confirm your password'))->label(false); ?>
         </div>
     
         <?php echo Html::submitButton(Yii::t('UserModule.views_account_changeEmail', 'Update Primary E-mail'), array('class' => 'btn btn-primary pull-right')); ?>
@@ -69,12 +69,12 @@ use yii\helpers\Html;
         
         <div class="form-group">
              <label class="required">Update Secondary E-Mail address *</label>
-            <?php echo $form->field($modelSecond, 'newSeconderyEmail')->textInput(array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Enter new secondary e-mail address')); ?>
+            <?php echo $form->field($modelSecond, 'newSeconderyEmail')->textInput(array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Enter new secondary e-mail address'))->label(false); ?>
         </div>
         
         <div class="form-group">
             <label class="required">Confirm password *</label>
-            <?php echo $form->field($modelSecond, 'seconderyPassword')->textInput(array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Confirm your password')); ?>
+            <?php echo $form->field($modelSecond, 'seconderyPassword')->textInput(array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Confirm your password'))->label(false); ?>
         </div>
     
 		<?php echo Html::submitButton(Yii::t('UserModule.views_account_changeEmail', 'Update Secondary E-mail'), array('class' => 'btn btn-primary pull-right')); ?>
