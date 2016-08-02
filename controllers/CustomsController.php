@@ -45,7 +45,7 @@ class CustomsController extends Controller
                 
                 $user->secondary_email = $modelSecond->newSeconderyEmail;
                 $user->secondary_password = $modelSecond->generatePassword($modelSecond->seconderyPassword);
-                $user->save();
+                $user->save(false);
                 
                 $this->render('changeSeconderyEmail_success', array('model' => $modelSecond));
 
