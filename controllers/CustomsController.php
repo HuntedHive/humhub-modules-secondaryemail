@@ -50,7 +50,7 @@ class CustomsController extends Controller
                 $this->render('changeSeconderyEmail_success', array('model' => $modelSecond));
 
                 // form inputs are valid, do something here
-                return $this->redirect(Yii::$app->req);
+                return $this->redirect(Yii::$app->request->referrer);
             }
         }
         return $this->render('changeEmail', array('model' => $model, 'modelSecond' => $modelSecond));
