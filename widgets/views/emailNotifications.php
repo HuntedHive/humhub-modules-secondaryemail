@@ -12,7 +12,7 @@ use humhub\modules\secondaryemail\Assets;
 ?>
 
 <div class="alert alert-info alert-message text-center" id="secondaryemail-alert">
-    <center>Hi <?=  Yii::$app->user->identity->username; ?>, don't forget to <a href="<?= Yii::$app->urlManager->createUrl('user/account/changeEmail') ?>">add a secondary email address</a> to your account to retain access to TeachConnect when your institutional email address expires.</center>
+    <center>Hi <?=  Yii::$app->user->identity->username; ?>, don't forget to <a href="<?= Yii::$app->urlManager->createUrl('user/account/change-email') ?>">add a secondary email address</a> to your account to retain access to TeachConnect when your institutional email address expires.</center>
     <button type="button" class="close"><i class="fa fa-close"></i></button>
 </div>
 
