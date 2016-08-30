@@ -2,6 +2,7 @@
 
 namespace humhub\modules\secondaryemail\forms;
 
+use humhub\modules\user\models\Password;
 use Yii;
 use yii\base\Model;
 use humhub\modules\user\models\User;
@@ -21,23 +22,19 @@ class AccountChangeSeconderyEmailForm extends Model {
             array('newSeconderyEmail', 'email'),
             array('newSeconderyEmail', 'unique', 'targetAttribute' => 'email', 'targetClass' => User::className(), 'message' => '{attribute} "{value}" is already in use!'),
             array('newSeconderyEmail', 'unique', 'targetAttribute' => 'secondary_email', 'targetClass' => User::className(), 'message' => '{attribute} "{value}" is already in use!'),
+            array('seconderyPassword' , 'EqualFirstPassword')
         );
     }
-    
-    public function CheckPasswordValidator()
+
+    public function EqualFirstPassword()
     {
-        $user = User::model()->findByPk(Yii::app()->user->id);
-        if (empty($user->secondery_password)) {
-            return true;
-        } else {
-            if ($user->secondery_password == $this->validPassword($this->seconderyPassword)) {
-                return true;
-            } else {
-                $this->addError("seconderyPassword", "Password has not correct");
-            }
+        $userPassword = Password::find()->andFilterWhere(['user_id' => Yii::$app->user->id])->one();
+
+        if(!$userPassword->validatePassword($this->seconderyPassword)) {
+            $this->addError("seconderyPassword", "Password has not correct");
         }
     }
-    
+
     public function validPassword($password)
     {
         return hash('sha512', hash('whirlpool', $password));
