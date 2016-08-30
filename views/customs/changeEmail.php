@@ -74,7 +74,7 @@ use yii\helpers\Html;
         
         <div class="form-group">
             <label class="required">Confirm password *</label>
-            <?php echo $form->field($modelSecond, 'seconderyPassword')->textInput(array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Confirm your password'))->label(false); ?>
+            <?php echo $form->field($modelSecond, 'seconderyPassword')->passwordInput(array('class' => 'form-control', 'maxlength' => 45, 'placeholder' => 'Confirm your password'))->label(false); ?>
         </div>
     
 		<?php echo Html::submitButton(Yii::t('UserModule.views_account_changeEmail', 'Update Secondary E-mail'), array('class' => 'btn btn-primary pull-right')); ?>
