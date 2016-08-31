@@ -28,11 +28,7 @@ class CustomsController extends Controller
             if ($model->validate()) {
 
                 $model->sendChangeEmail();
-
-                $this->render('changeEmail_success', array('model' => $model));
-
-                // form inputs are valid, do something here
-                return;
+                return $this->render('changeEmail_success', array('model' => $model));
             }
         }
         
@@ -47,7 +43,7 @@ class CustomsController extends Controller
                 $user->secondary_password = $modelSecond->generatePassword($modelSecond->seconderyPassword);
                 $user->save(false);
                 
-                $this->render('changeSeconderyEmail_success', array('model' => $modelSecond));
+                return $this->render('changeSeconderyEmail_success', array('model' => $modelSecond));
 
                 // form inputs are valid, do something here
                 return $this->redirect(Yii::$app->request->referrer);
