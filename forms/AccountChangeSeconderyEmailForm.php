@@ -31,7 +31,7 @@ class AccountChangeSeconderyEmailForm extends Model {
         $userPassword = Password::find()->andFilterWhere(['user_id' => Yii::$app->user->id])->one();
 
         if(!$userPassword->validatePassword($this->seconderyPassword)) {
-            $this->addError("seconderyPassword", "Password has not correct");
+            $this->addError("seconderyPassword", "Incorrect password has been entered");
         }
     }
 
