@@ -52,7 +52,7 @@ class AccountChangeSeconderyEmailForm extends Model {
 
     public function EqualFirstPassword()
     {
-        $userPassword = Password::find()->andFilterWhere(['user_id' => Yii::$app->user->id])->one();
+        $userPassword = Password::find()->andFilterWhere(['user_id' => Yii::$app->user->id])->orderBy(['id' => SORT_DESC])->one();
 
         if(!$userPassword->validatePassword($this->seconderyPassword)) {
             $this->addError("seconderyPassword", "Incorrect password has been entered");
